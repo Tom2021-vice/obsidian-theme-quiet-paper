@@ -23,6 +23,11 @@ settings:
     title: 纸面内边距
     type: variable-text
     default: 1.9em
+  - id: qp-full-empty-lines
+    title: 保留完整空行高度
+    description: 默认收紧未编辑的段间空行；开启后恢复编辑器的完整空行高度。
+    type: class-toggle
+    default: false
   - id: qp-flat-paper
     title: 平整纸面
     description: 去掉纸面圆角与阴影。
@@ -42,7 +47,11 @@ body {
   --qp-line-width: 40em;
   --qp-paper-padding: 1.9em;
   --qp-line-height: 1.6;
-  --qp-paragraph-space: 0.7em;
+  --qp-paragraph-space: calc(var(--font-text-size) * 0.65);
+  --qp-heading-before: calc(var(--font-text-size) * 1.1);
+  --qp-heading-after: calc(var(--font-text-size) * 0.45);
+  --qp-empty-line-height: var(--qp-paragraph-space);
+  --qp-list-line-height: 1.5;
   --qp-paper-radius: 12px;
   --qp-paper-shadow: 0 8px 36px rgb(42 36 24 / 5%);
   --qp-text-align: justify;
@@ -55,7 +64,7 @@ body {
   --file-line-width: calc(var(--qp-line-width) + 2 * var(--qp-paper-padding));
   --file-margins: 28px 24px;
   --p-spacing: var(--qp-paragraph-space);
-  --heading-spacing: 1.35em;
+  --heading-spacing: var(--qp-heading-before);
   --h1-font: var(--font-text);
   --h2-font: var(--font-text);
   --h3-font: var(--font-text);
@@ -88,7 +97,7 @@ body {
   --inline-title-weight: 700;
   --inline-title-line-height: 1.35;
   --bold-weight: 700;
-  --list-spacing: 0.2em;
+  --list-spacing: 0.06em;
   --list-indent: 1.7em;
   --list-indent-editing: 0.9em;
   --code-size: 0.85em;

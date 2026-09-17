@@ -1,15 +1,17 @@
 {
   "name": "quiet-paper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "A paper-like Obsidian theme inspired by Telari typography.",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
     "lint": "stylelint \"src/**/*.css\"",
-    "check": "npm run build && npm run lint"
+    "check": "npm run build && npm run lint",
+    "test:spacing": "node tests/spacing.mjs"
   },
   "devDependencies": {
+    "playwright-core": "1.63.0",
     "stylelint": "^16.0.0",
     "stylelint-config-standard": "^38.0.0"
   }
