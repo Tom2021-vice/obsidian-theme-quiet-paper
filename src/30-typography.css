@@ -1,0 +1,78 @@
+.markdown-rendered,
+.markdown-source-view.mod-cm6.is-live-preview {
+  font-kerning: normal;
+  text-rendering: optimizelegibility;
+}
+
+.markdown-rendered p {
+  text-align: var(--qp-text-align);
+  text-align-last: start;
+  text-indent: 0;
+  line-break: strict;
+  overflow-wrap: break-word;
+}
+
+/* No vertical margin or DOM surgery in CodeMirror. It owns line geometry. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-header, .HyperMD-codeblock, .HyperMD-list-line, .HyperMD-quote, .HyperMD-table-row, .HyperMD-hr, .HyperMD-frontmatter) {
+  text-align: var(--qp-text-align);
+  text-align-last: start;
+  line-break: strict;
+}
+
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header {
+  text-align: start;
+  overflow-wrap: break-word;
+}
+
+/* The opening heading should share the reading view's top inset. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content > .HyperMD-header:first-child {
+  padding-top: 0;
+}
+
+.markdown-rendered :is(a, .internal-link),
+.markdown-source-view.mod-cm6 .cm-underline {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, currentcolor 45%, transparent);
+  text-decoration-skip-ink: auto;
+}
+
+.markdown-rendered strong,
+.markdown-source-view.mod-cm6 .cm-strong {
+  color: var(--text-normal);
+}
+
+/* Progressive enhancement: older Electron installers keep native spacing. */
+@supports (text-autospace: normal) {
+  .markdown-rendered p,
+  .markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-codeblock, .HyperMD-frontmatter) {
+    text-autospace: normal;
+  }
+}
+
+.markdown-rendered :is(code, pre),
+.markdown-source-view.mod-cm6 :is(.cm-inline-code, .HyperMD-codeblock) {
+  text-align: start;
+  text-autospace: no-autospace;
+  font-variant-ligatures: none;
+}
+
+.markdown-rendered blockquote {
+  padding: 0.15em 1em;
+  border-radius: 0;
+}
+
+.markdown-rendered blockquote p {
+  text-align: start;
+}
+
+.markdown-rendered hr {
+  margin-block: 1.8em;
+  border-color: var(--background-modifier-border);
+}
+
+.markdown-rendered .footnotes {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}

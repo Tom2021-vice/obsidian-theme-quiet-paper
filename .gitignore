@@ -1,0 +1,6 @@
+node_modules/
+.local/
+dist/
+demo-vault/.obsidian/workspace.json
+demo-vault/.obsidian/workspace-mobile.json
+demo-vault/.obsidian/themes/

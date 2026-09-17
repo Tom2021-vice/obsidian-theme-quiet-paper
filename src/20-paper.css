@@ -1,0 +1,48 @@
+/* Scope paper to full Markdown leaves. Embedded notes retain their own layout. */
+.workspace-leaf-content[data-type="markdown"] > .view-content {
+  container: quiet-note / inline-size;
+  background: var(--qp-desk);
+}
+
+.workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-reading-view > .markdown-preview-view,
+.workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-source-view {
+  background: var(--qp-desk);
+}
+
+.workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-reading-view > .markdown-preview-view > .markdown-preview-sizer,
+.workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-source-view.is-live-preview > .cm-editor > .cm-scroller > .cm-sizer {
+  box-sizing: border-box;
+  padding: var(--qp-paper-padding);
+  background: var(--qp-paper);
+  border-radius: var(--qp-paper-radius);
+  box-shadow: var(--qp-paper-shadow);
+}
+
+.workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-source-view.is-live-preview > .cm-editor > .cm-scroller {
+  padding: var(--file-margins);
+}
+
+/* Source mode remains a conventional source editor. */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-scroller {
+  font-family: var(--font-monospace);
+  line-height: 1.6;
+}
+
+@container quiet-note (max-width: 600px) {
+  .markdown-preview-view,
+  .markdown-source-view {
+    --qp-paper-padding: 1.2em;
+    --file-margins: 16px 12px;
+    --qp-paper-radius: 8px;
+  }
+}
+
+@container quiet-note (max-width: 420px) {
+  .markdown-preview-view,
+  .markdown-source-view {
+    --qp-text-align: start;
+    --qp-paper-padding: 0.85em;
+    --file-margins: 10px 6px;
+    --qp-paper-radius: 5px;
+  }
+}
