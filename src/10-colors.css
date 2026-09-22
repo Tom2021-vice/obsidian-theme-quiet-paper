@@ -1,4 +1,4 @@
-/* The light palette is sampled from the reference; dark is a usable fallback. */
+/* Paper colors follow the reference; accents use muted, ink-like tones. */
 .theme-light {
   --qp-desk: #fbfaf6;
   --qp-paper: #fff;
@@ -39,8 +39,20 @@
   --code-string: #587152;
   --code-value: #866075;
   --code-important: #975141;
-  --blockquote-border-color: #c8b89a;
-  --blockquote-color: #645f54;
+  --blockquote-border-color: #ac8854;
+  --blockquote-color: #62523d;
+  --blockquote-background-color: #f3efe5;
+  --qp-inline-code-color: #96521c;
+  --qp-inline-code-background: #f0e9dc;
+  --qp-inline-code-border: #ddc9ab;
+  --qp-folder-1: #954b42;
+  --qp-folder-2: #8f5b21;
+  --qp-folder-3: #6b6728;
+  --qp-folder-4: #486b51;
+  --qp-folder-5: #376b6c;
+  --qp-folder-6: #46648a;
+  --qp-folder-7: #73567d;
+  --qp-folder-8: #895167;
   --table-header-background: #f8f6f0;
   --table-row-alt-background: #fcfbf8;
   --tab-background-active: #fbfaf6;
@@ -75,8 +87,20 @@
   --color-accent: #ba8947;
   --code-background: #24221e;
   --code-normal: #d1c6b4;
-  --blockquote-border-color: #827056;
-  --blockquote-color: #bdb29f;
+  --blockquote-border-color: #c39b61;
+  --blockquote-color: #d7cbb7;
+  --blockquote-background-color: #353128;
+  --qp-inline-code-color: #e6ae62;
+  --qp-inline-code-background: #3b3932;
+  --qp-inline-code-border: #625444;
+  --qp-folder-1: #d7a096;
+  --qp-folder-2: #d9b278;
+  --qp-folder-3: #c9c087;
+  --qp-folder-4: #9fbd9e;
+  --qp-folder-5: #93bcb5;
+  --qp-folder-6: #9fb6d1;
+  --qp-folder-7: #bda6cb;
+  --qp-folder-8: #d0a4b7;
   --table-header-background: #322f29;
   --table-row-alt-background: #292722;
   --tab-background-active: #2b2925;

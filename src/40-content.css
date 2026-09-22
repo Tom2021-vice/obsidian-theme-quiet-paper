@@ -28,8 +28,22 @@
   overflow-wrap: normal;
 }
 
+/* Inline code gets its own palette; fenced code keeps syntax colors.
+   Native border and token rules join the segments while editing backticks. */
+.markdown-rendered :not(pre) > code,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-codeblock) .cm-inline-code {
+  --code-normal: var(--qp-inline-code-color);
+  --code-background: var(--qp-inline-code-background);
+  --code-border-color: var(--qp-inline-code-border);
+  --code-border-width: 1px;
+  --code-radius: 5px;
+
+  color: var(--code-normal);
+  font-weight: 500;
+}
+
 .markdown-rendered :not(pre) > code {
-  padding: 0.12em 0.3em;
+  padding: 0.12em 0.35em;
 }
 
 .markdown-rendered .el-table {

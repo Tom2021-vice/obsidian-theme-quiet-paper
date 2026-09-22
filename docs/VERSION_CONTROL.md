@@ -22,7 +22,7 @@ git diff v0.1.1
 
 ## 保存下一轮改动
 
-每轮修改后先检查差异，运行相应验证，再提交。修改主题源码时运行 `npm run check`，间距相关修改另运行 `npm run test:spacing`，同时提交源码和生成的根目录 `theme.css`。
+每轮修改后先检查差异，运行相应验证，再提交。修改主题源码时运行 `npm run check`，间距相关修改另运行 `npm run test:spacing`，外观与界面修改另运行 `npm run test:appearance`，同时提交源码和生成的根目录 `theme.css`。
 
 ```sh
 git diff

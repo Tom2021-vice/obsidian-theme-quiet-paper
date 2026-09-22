@@ -28,6 +28,11 @@ settings:
     description: 默认收紧未编辑的段间空行；开启后恢复编辑器的完整空行高度。
     type: class-toggle
     default: false
+  - id: qp-plain-folders
+    title: 简洁文件目录
+    description: 关闭文件管理器的分组配色、卡片与装饰图标。
+    type: class-toggle
+    default: false
   - id: qp-flat-paper
     title: 平整纸面
     description: 去掉纸面圆角与阴影。
@@ -102,7 +107,7 @@ body {
   --list-indent-editing: 0.9em;
   --code-size: 0.85em;
   --code-radius: 4px;
-  --blockquote-border-thickness: 2px;
+  --blockquote-border-thickness: 4px;
   --blockquote-font-style: normal;
   --table-text-size: 0.94em;
   --table-cell-padding: 0.35em 0.65em;
@@ -117,9 +122,6 @@ body {
   --radius-s: 4px;
   --radius-m: 6px;
   --radius-l: 10px;
-  --tab-radius-active: 0;
-  --tab-outline-width: 0;
-  --tab-curve: 0;
   --file-header-font-size: 13px;
   --file-header-justify: center;
 }

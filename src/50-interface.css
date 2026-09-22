@@ -5,8 +5,13 @@
   background: var(--qp-desk);
 }
 
-.workspace-tab-header.is-active {
-  box-shadow: inset 0 -2px var(--text-accent);
+/* Native tab curves preserve hit areas, close buttons and dragging.
+   Sidebar icon tabs, mobile tabs and stacked tabs keep their own geometry. */
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs:not(.mod-stacked) {
+  --tab-radius-active: 12px 12px 0 0;
+  --tab-curve: 8px;
+  --tab-outline-width: 1px;
+  --tab-outline-color: var(--background-modifier-border-hover);
 }
 
 .workspace-tab-header.is-active .workspace-tab-header-inner-title {
