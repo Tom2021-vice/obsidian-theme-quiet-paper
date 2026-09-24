@@ -1,7 +1,10 @@
 /* Top-level folder groups inherit one muted color down their branch.
    Count folders only: loose files do not shift the palette. This is visual
-   ordering, not a persistent mapping from folder names to colors. */
-body:not(.qp-plain-folders) .workspace-leaf-content[data-type="file-explorer"] .nav-folder.mod-root > .nav-folder-children > .nav-folder {
+   ordering, not a persistent mapping from folder names to colors.
+   The 1.13.7 virtual tree puts folders in an unclassed div directly under
+   nav-files-container. Also retain the legacy root-folder wrapper. Do not
+   match nested folder children as independent top-level color groups. */
+body:not(.qp-plain-folders) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-files-container > div:not(.nav-folder, .nav-file), .nav-folder.mod-root > .nav-folder-children) > .nav-folder {
   --qp-folder-color: var(--qp-folder-1);
   --nav-item-color-active: var(--text-normal);
   --nav-item-background-active: color-mix(in srgb, var(--qp-folder-color) 18%, var(--background-secondary));
