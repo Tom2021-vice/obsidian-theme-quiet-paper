@@ -1,0 +1,103 @@
+/* Use body-size lengths: em on a heading otherwise magnifies its own gaps.
+   Reading view uses margins; CodeMirror owns its margins and gets padding.
+   All editor selectors below stop at direct children of the OUTER content. */
+.markdown-reading-view .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: var(--qp-heading-before) var(--qp-heading-after);
+}
+
+.markdown-reading-view .markdown-rendered :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) + :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) > :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: calc(var(--qp-heading-before) * 0.6);
+}
+
+.markdown-reading-view .markdown-rendered :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) + :is(.el-p, .el-ul, .el-ol, .el-pre, .el-table) > :is(p, ul, ol, pre, table) {
+  margin-top: var(--qp-heading-after);
+}
+
+.markdown-reading-view .markdown-rendered pre {
+  margin-block: var(--qp-paragraph-space);
+}
+
+.markdown-reading-view .markdown-rendered li {
+  line-height: var(--qp-list-line-height);
+}
+
+.markdown-source-view.mod-cm6.is-live-preview > .cm-editor > .cm-scroller > .cm-sizer > .cm-contentContainer > .cm-content {
+  & > .cm-line.HyperMD-header {
+    padding-block: var(--qp-heading-before) var(--qp-heading-after);
+  }
+
+  & > .cm-line.HyperMD-header:first-child {
+    padding-top: 0;
+  }
+
+  & > .HyperMD-header + .HyperMD-header {
+    padding-top: calc(var(--qp-heading-before) * 0.6);
+  }
+
+  & > .cm-line.HyperMD-list-line:not(.HyperMD-codeblock) {
+    line-height: var(--qp-list-line-height);
+  }
+
+  /* A rendered fence is a block widget. Its pre margin is reset by Obsidian,
+     so space belongs to the transparent widget, outside the code surface. */
+  & > .cm-preview-code-block {
+    padding-block: var(--qp-paragraph-space);
+  }
+
+  & > .HyperMD-header + .cm-preview-code-block {
+    padding-top: 0;
+  }
+
+  & > .cm-preview-code-block + .HyperMD-header {
+    padding-top: max(0px, calc(var(--qp-heading-before) - var(--qp-paragraph-space)));
+  }
+
+  /* When a code widget opens for editing, leave space on the adjacent prose
+     lines. Do not interfere with CodeMirror's code-background decorations. */
+  & > .cm-line:not(.HyperMD-codeblock, :has(> br:only-child)):has(+ .HyperMD-codeblock-begin) {
+    padding-bottom: var(--qp-paragraph-space);
+  }
+
+  & > .HyperMD-codeblock-end + .cm-line:not(.HyperMD-header, .HyperMD-codeblock, :has(> br:only-child)) {
+    padding-top: var(--qp-paragraph-space);
+  }
+}
+
+/* Only structural, empty, inactive lines get shorter. They stay in the
+   document and remain clickable. Typing, IME, code, quotes, lists, metadata,
+   nested cell editors and source mode retain their normal line height.
+   :has() is bounded to direct siblings/children, never the whole document. */
+body:not(.qp-full-empty-lines) .markdown-source-view.mod-cm6.is-live-preview > .cm-editor > .cm-scroller > .cm-sizer > .cm-contentContainer > .cm-content {
+  & > .cm-line:has(> br:only-child):not(.cm-active, .HyperMD-codeblock, .HyperMD-list-line, .HyperMD-quote, .HyperMD-frontmatter) {
+    line-height: var(--qp-empty-line-height);
+    padding-block: 0;
+  }
+
+  /* An existing blank line supplies the gap: do not add it a second time. */
+  & > .HyperMD-header:has(+ .cm-line > br:only-child) {
+    padding-bottom: 0;
+  }
+
+  & > .HyperMD-header + .cm-line:has(> br:only-child):not(.cm-active, .HyperMD-codeblock, .HyperMD-list-line, .HyperMD-quote, .HyperMD-frontmatter) {
+    line-height: var(--qp-heading-after);
+  }
+
+  & > .cm-line:has(> br:only-child) + .HyperMD-header {
+    padding-top: max(0px, calc(var(--qp-heading-before) - var(--qp-empty-line-height)));
+  }
+
+  & > .HyperMD-header + .cm-line:has(> br:only-child) + .HyperMD-header {
+    padding-top: max(0px, calc(var(--qp-heading-before) - var(--qp-heading-after)));
+  }
+
+  & > .cm-line:has(> br:only-child) + .cm-preview-code-block {
+    padding-top: 0;
+  }
+
+  & > .cm-preview-code-block:has(+ .cm-line > br:only-child) {
+    padding-bottom: 0;
+  }
+}
+
+/* Preserve native table-widget padding: it contains row/column drag controls.
+   The preceding source blank now contributes only one small visual gap. */

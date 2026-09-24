@@ -1,0 +1,15 @@
+node_modules/
+.local/
+dist/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+demo-vault/.obsidian/*
+!demo-vault/.obsidian/app.json
+!demo-vault/.obsidian/appearance.json
+!demo-vault/.obsidian/core-plugins.json

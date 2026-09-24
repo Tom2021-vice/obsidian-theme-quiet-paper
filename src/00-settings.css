@@ -1,0 +1,136 @@
+/* @settings
+name: Quiet Paper · 静纸
+id: quiet-paper
+settings:
+  - id: qp-line-width
+    title: 正文宽度
+    description: 以正文字号为单位；40em 约为一行 40 个汉字。
+    type: variable-text
+    default: 40em
+  - id: qp-cjk-font
+    title: 中文字体
+    description: 填写已安装字体名称；推荐 Noto Serif SC 或 Source Han Serif SC。
+    type: variable-text
+    default: '"Noto Serif SC", "Source Han Serif SC", "思源宋体", "SimSun"'
+  - id: qp-line-height
+    title: 正文行高
+    type: variable-number-slider
+    default: 1.6
+    min: 1.4
+    max: 2
+    step: 0.05
+  - id: qp-paper-padding
+    title: 纸面内边距
+    type: variable-text
+    default: 1.9em
+  - id: qp-full-empty-lines
+    title: 保留完整空行高度
+    description: 默认收紧未编辑的段间空行；开启后恢复编辑器的完整空行高度。
+    type: class-toggle
+    default: false
+  - id: qp-plain-folders
+    title: 简洁文件目录
+    description: 关闭文件管理器的分组配色、卡片与装饰图标。
+    type: class-toggle
+    default: false
+  - id: qp-flat-paper
+    title: 平整纸面
+    description: 去掉纸面圆角与阴影。
+    type: class-toggle
+    default: false
+  - id: qp-align-start
+    title: 左对齐正文
+    description: 关闭两端对齐，保留自然行尾。
+    type: class-toggle
+    default: false
+*/
+
+body {
+  --qp-cjk-font: "Noto Serif SC", "Source Han Serif SC", "思源宋体", "Songti SC", "SimSun";
+  --qp-latin-font: "Quiet Pagella", "Palatino Linotype", "Book Antiqua";
+  --qp-reading-font: var(--qp-latin-font), var(--qp-cjk-font), "Noto Serif JP", "Noto Serif KR", serif;
+  --qp-line-width: 40em;
+  --qp-paper-padding: 1.9em;
+  --qp-line-height: 1.6;
+  --qp-paragraph-space: calc(var(--font-text-size) * 0.65);
+  --qp-heading-before: calc(var(--font-text-size) * 1.1);
+  --qp-heading-after: calc(var(--font-text-size) * 0.45);
+  --qp-empty-line-height: var(--qp-paragraph-space);
+  --qp-list-line-height: 1.5;
+  --qp-paper-radius: 12px;
+  --qp-paper-shadow: 0 8px 36px rgb(42 36 24 / 5%);
+  --qp-text-align: justify;
+  --font-text-theme: var(--qp-reading-font);
+  --font-monospace-theme: "Cascadia Code", "Consolas", monospace;
+  --font-interface-theme: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-text-size: 18px;
+  --line-height-normal: var(--qp-line-height);
+  --line-height-tight: 1.35;
+  --file-line-width: calc(var(--qp-line-width) + 2 * var(--qp-paper-padding));
+  --file-margins: 28px 24px;
+  --p-spacing: var(--qp-paragraph-space);
+  --heading-spacing: var(--qp-heading-before);
+  --h1-font: var(--font-text);
+  --h2-font: var(--font-text);
+  --h3-font: var(--font-text);
+  --h4-font: var(--font-text);
+  --h5-font: var(--font-text);
+  --h6-font: var(--font-text);
+  --h1-size: 1.55em;
+  --h2-size: 1.38em;
+  --h3-size: 1.2em;
+  --h4-size: 1.08em;
+  --h5-size: 1em;
+  --h6-size: 0.95em;
+  --h1-weight: 700;
+  --h2-weight: 700;
+  --h3-weight: 700;
+  --h4-weight: 700;
+  --h5-weight: 700;
+  --h6-weight: 700;
+  --h1-line-height: 1.35;
+  --h2-line-height: 1.4;
+  --h3-line-height: 1.4;
+  --h4-line-height: 1.4;
+  --h5-line-height: 1.4;
+  --h6-line-height: 1.4;
+  --h1-letter-spacing: -0.015em;
+  --h2-letter-spacing: 0;
+  --h3-letter-spacing: 0;
+  --inline-title-font: var(--font-text);
+  --inline-title-size: var(--h1-size);
+  --inline-title-weight: 700;
+  --inline-title-line-height: 1.35;
+  --bold-weight: 700;
+  --list-spacing: 0.06em;
+  --list-indent: 1.7em;
+  --list-indent-editing: 0.9em;
+  --code-size: 0.85em;
+  --code-radius: 4px;
+  --blockquote-border-thickness: 4px;
+  --blockquote-font-style: normal;
+  --table-text-size: 0.94em;
+  --table-cell-padding: 0.35em 0.65em;
+  --table-column-min-width: 6em;
+  --table-header-weight: 600;
+  --embed-border-start: 2px solid var(--background-modifier-border);
+  --embed-padding: 0.25em 1em;
+  --link-decoration: underline;
+  --link-external-decoration: underline;
+  --link-unresolved-opacity: 0.7;
+  --checkbox-radius: 3px;
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --radius-l: 10px;
+  --file-header-font-size: 13px;
+  --file-header-justify: center;
+}
+
+body.qp-flat-paper {
+  --qp-paper-radius: 0;
+  --qp-paper-shadow: none;
+}
+
+body.qp-align-start {
+  --qp-text-align: start;
+}
