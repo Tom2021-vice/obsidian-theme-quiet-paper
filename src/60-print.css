@@ -1,0 +1,22 @@
+/* Print the SVG itself at page size, not a clipped screen-width viewport.
+   Mermaid emits inline pixel/percentage dimensions; !important is limited
+   to these print-only dimension overrides. Nested SVG icons stay untouched. */
+@media print {
+  .markdown-rendered .mermaid,
+  .markdown-rendered .mermaid-wrapper:not(.is-guarded) {
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
+    break-inside: avoid;
+  }
+
+  .markdown-rendered .mermaid > svg {
+    display: block;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: var(--qp-mermaid-print-max-height) !important;
+    margin-inline: auto;
+  }
+}

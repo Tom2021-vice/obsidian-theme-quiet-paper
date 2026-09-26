@@ -60,6 +60,12 @@ body {
   --qp-paper-radius: 12px;
   --qp-paper-shadow: 0 8px 36px rgb(42 36 24 / 5%);
   --qp-text-align: start;
+  --qp-quote-padding: 0.6em;
+
+  /* Optical adjustment for the reading font's ink above the baseline.
+     Equal-and-opposite padding preserves the total block/line height. */
+  --qp-quote-optical-offset: 0.2em;
+  --qp-mermaid-print-max-height: 80vh;
   --font-text-theme: var(--qp-reading-font);
   --line-height-normal: var(--qp-line-height);
   --line-height-tight: 1.35;

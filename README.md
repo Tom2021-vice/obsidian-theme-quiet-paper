@@ -4,7 +4,7 @@
 
 A paper-inspired Obsidian theme with serif typography, warm light and dark palettes, and a colorful file explorer.
 
-**版本 0.1.6 · Obsidian ≥ 1.13.7 · Windows 优先 · 无必需插件**
+**版本 0.1.7 · Obsidian ≥ 1.13.7 · Windows 优先 · 无必需插件**
 
 ## 预览
 
@@ -24,6 +24,7 @@ A paper-inspired Obsidian theme with serif typography, warm light and dark palet
 - **自然的混排**：默认左对齐，可选择两端对齐；字号、界面与代码字体遵循 Obsidian 设置。
 - **彩虹目录**：八组低饱和配色、层级线、开合文件夹图标与选中高亮。
 - **柔和的界面**：浅深配色、圆角文档标签，保留 Obsidian 原有操作方式。
+- **打印适配**：Mermaid 图表在打印时按页宽与高度上限等比缩小，屏幕显示不变。
 - **离线可用**：字体嵌入主题 CSS，运行时不请求远程资源。
 
 ## 安装
@@ -93,6 +94,8 @@ body {
 - 实时预览会在光标进入空行时恢复正常行高，可能出现局部位移；可开启「保留完整空行高度」。
 - 彩虹目录按当前挂载的顶层文件夹顺序配色。排序或长目录滚动可能改变色序，目前没有固定路径配色。
 - 表格前的空行属于 Markdown 内容，主题只调整显示，不改变解析规则或笔记文本。
+- Mermaid 打印规则适用于带有效 `viewBox` 的原生 SVG；超长图会缩小，文字也随之缩小。密集流程图可选横向纸张或拆成多张图，主题不重排节点。
+- 引用留白针对默认阅读字体做了视觉校正；若自定义字体偏差明显，可通过 CSS 片段设置 `--qp-quote-optical-offset: 0em` 恢复对称内边距。
 - 两端对齐使用浏览器原生能力，没有实现 Knuth–Plass 全段断行；公式仍由 MathJax 渲染。
 - Style Settings 面板及第三方图标插件的组合兼容性仍需更多实测。
 
