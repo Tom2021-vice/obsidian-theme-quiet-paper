@@ -10,7 +10,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const theme = await readFile(resolve(root, 'theme.css'), 'utf8');
 // Only the native layout constraints needed to reproduce the reported bugs.
 const base = `
-body { font-size: 18px; --font-text: serif; --font-monospace: monospace; }
+body { --font-text-size: 18px; font-size: 18px; --font-text: serif; --font-monospace: monospace; }
 .cm-content { font-size: var(--font-text-size); line-height: var(--line-height-normal); }
 .cm-line { min-height: 0; }
 .markdown-source-view.mod-cm6 .cm-content > * { margin: 0 !important; display: block; }

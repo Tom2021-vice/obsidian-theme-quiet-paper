@@ -4,7 +4,7 @@
 
 A paper-inspired Obsidian theme with serif typography, warm light and dark palettes, and a colorful file explorer.
 
-**版本 0.1.5 · Obsidian ≥ 1.13.7 · Windows 优先 · 无必需插件**
+**版本 0.1.6 · Obsidian ≥ 1.13.7 · Windows 优先 · 无必需插件**
 
 ## 预览
 
@@ -19,7 +19,9 @@ A paper-inspired Obsidian theme with serif typography, warm light and dark palet
 - **纸面布局**：居中的正文区域、柔和阴影与自适应留白。
 - **中西文衬线正文**：内嵌 TeX Gyre Pagella 西文字体，中文使用本机宋体类字体。
 - **双视图排版**：阅读视图与实时预览共享字体、版心与间距参数。
-- **清楚的内容边界**：暖色引用底板、琥珀色行内代码、适当的标题与列表间距。
+- **清楚的内容边界**：暖色引用底板、琥珀色行内代码、低饱和 Callout 提示框。
+- **有层次的排版**：六级标题、实心圆 / 空心圆 / 方形列表符号，以及暖色表头；表格不使用斑马纹。
+- **自然的混排**：默认左对齐，可选择两端对齐；字号、界面与代码字体遵循 Obsidian 设置。
 - **彩虹目录**：八组低饱和配色、层级线、开合文件夹图标与选中高亮。
 - **柔和的界面**：浅深配色、圆角文档标签，保留 Obsidian 原有操作方式。
 - **离线可用**：字体嵌入主题 CSS，运行时不请求远程资源。
@@ -49,10 +51,13 @@ A paper-inspired Obsidian theme with serif typography, warm light and dark palet
 | --- | --- | --- |
 | 西文正文 | TeX Gyre Pagella，含粗体、斜体与粗斜体 | 是 |
 | 中文正文 | Noto Serif SC / Source Han Serif SC，回退到系统宋体 | 否 |
-| 代码 | Cascadia Code / Consolas | 否 |
+| 界面 | Obsidian 的界面字体设置或系统默认 | 否 |
+| 代码 | Obsidian 的等宽字体设置或系统默认 | 否 |
 | 数学公式 | Obsidian 原生 MathJax 字体 | 否 |
 
-建议安装 [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) 或 [思源宋体](https://github.com/adobe-fonts/source-han-serif)。在 Obsidian 外观设置中清空自定义的**正文字体**，可以让主题的中西文字体搭配生效；界面字体和等宽字体可保留个人设置。
+建议安装 [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) 或 [思源宋体](https://github.com/adobe-fonts/source-han-serif)。在 Obsidian 外观设置中清空自定义的**正文字体**，可以让主题的中西文字体搭配生效；界面字体和等宽字体沿用个人设置；没有自定义时使用 Obsidian 原生默认值。主题不固定正文字号，18 只是建议值，段间距会随字号缩放。
+
+H4 / H5 / H6 请求字重为 650 / 600 / 600，H6 另用次要文字颜色。实际粗细取决于字体可用字重；内嵌 Pagella 只有 400 与 700，浏览器会匹配可用字重。
 
 ## 自定义
 
@@ -67,7 +72,9 @@ A paper-inspired Obsidian theme with serif typography, warm light and dark palet
 | 保留完整空行高度 | 默认关闭；开启后取消实时预览的空行收紧 |
 | 简洁文件目录 | 默认关闭；开启后移除彩虹分组与装饰图标 |
 | 平整纸面 | 去掉纸面圆角与阴影 |
-| 左对齐正文 | 关闭两端对齐 |
+| 两端对齐正文 | 默认关闭；开启后使用两端对齐，打印仍左对齐 |
+
+从 0.1.5 升级时，旧「左对齐正文」选项已被默认左对齐取代。需要书籍式对齐时，请开启新的「两端对齐正文」；长路径和中英混排建议保持默认。
 
 也可以使用 CSS 片段调整数值：
 

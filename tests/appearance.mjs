@@ -12,7 +12,7 @@ const { version } = JSON.parse(await readFile(resolve(root, 'manifest.json'), 'u
 const output = resolve(root, '.local/review');
 await mkdir(output, { recursive: true });
 const native = `
-body { --font-text: var(--font-text-theme); --font-monospace: Consolas, monospace; --code-border-width: 0px; --code-border-color: transparent; --tab-radius-active: 6px 6px 0 0; --tab-outline-width: 0px; --tab-curve: 6px; --nav-item-background-hover: var(--background-modifier-hover); --nav-item-background-selected: var(--text-selection); }
+body { --font-text-size: 18px; --font-text: var(--font-text-theme); --font-monospace: Consolas, monospace; --code-border-width: 0px; --code-border-color: transparent; --tab-radius-active: 6px 6px 0 0; --tab-outline-width: 0px; --tab-curve: 6px; --nav-item-background-hover: var(--background-modifier-hover); --nav-item-background-selected: var(--text-selection); }
 .markdown-rendered { font-family: var(--font-text); font-size: var(--font-text-size); line-height: var(--line-height-normal); }
 .markdown-rendered blockquote { color: var(--blockquote-color); background: var(--blockquote-background-color); border-inline-start: var(--blockquote-border-thickness) solid var(--blockquote-border-color); margin-inline: 0; }
 .markdown-rendered blockquote > :first-child { margin-top: 0; }

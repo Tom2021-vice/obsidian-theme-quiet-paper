@@ -1,0 +1,52 @@
+/* Decorate native bullet pseudo-elements, preserving their click targets and
+   task checkboxes. Mixed ordered/unordered lists count toward visual depth. */
+.markdown-rendered :is(ul, ol),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line {
+  --qp-bullet-fill: var(--list-marker-color);
+  --qp-bullet-border: none;
+  --qp-bullet-radius: 50%;
+  --qp-bullet-size: 0.4em;
+}
+
+.markdown-rendered :is(ul, ol) :is(ul, ol),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-2 {
+  --qp-bullet-fill: transparent;
+  --qp-bullet-border: 1.5px solid var(--list-marker-color);
+}
+
+.markdown-rendered :is(ul, ol) :is(ul, ol) :is(ul, ol),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2) {
+  --qp-bullet-fill: var(--list-marker-color);
+  --qp-bullet-border: none;
+  --qp-bullet-radius: 1px;
+  --qp-bullet-size: 0.34em;
+}
+
+/* Low specificity keeps native hover and collapsed feedback effective. */
+:where(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line) .list-bullet::after {
+  box-sizing: border-box;
+  width: var(--qp-bullet-size, var(--list-bullet-size));
+  height: var(--qp-bullet-size, var(--list-bullet-size));
+  border: var(--qp-bullet-border, none);
+  border-radius: var(--qp-bullet-radius, 50%);
+  background-color: var(--qp-bullet-fill, var(--list-marker-color));
+}
+
+/* Native-marker fallback for renderers which do not create .list-bullet. */
+.markdown-rendered ul:not(.has-list-bullet) {
+  list-style-type: disc;
+}
+
+.markdown-rendered :is(ul, ol) ul:not(.has-list-bullet) {
+  list-style-type: circle;
+}
+
+.markdown-rendered :is(ul, ol) :is(ul, ol) ul:not(.has-list-bullet) {
+  list-style-type: square;
+}
+
+:where(.markdown-rendered) ol > li::marker,
+:where(.markdown-source-view.mod-cm6.is-live-preview) .cm-formatting-list-ol {
+  color: var(--list-marker-color);
+  font-weight: 600;
+}
