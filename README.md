@@ -1,83 +1,84 @@
 # Quiet Paper · 静纸
 
-为 Obsidian 打造的纸张风格主题：舒适的中西文衬线排版、温暖的浅深配色，以及更清楚的内容层级。
+**English** | [简体中文](README.zh-CN.md)
 
-A paper-inspired Obsidian theme with serif typography, warm light and dark palettes, and a colorful file explorer.
+A paper-inspired Obsidian theme with serif typography, warm light and dark palettes, and a colorful file explorer. Designed for comfortable Chinese and Latin text, with shared typography and spacing across Reading View and Live Preview.
 
-**版本 0.1.7 · Obsidian ≥ 1.13.7 · Windows 优先 · 无必需插件**
+**Version 0.1.8 · Obsidian ≥ 1.13.7 · Windows first · No required plugins**
 
-## 预览
+## Preview
 
-| 浅色 | 深色 |
+| Light | Dark |
 | --- | --- |
-| ![浅色静态样张](docs/assets/preview-light.png) | ![深色静态样张](docs/assets/preview-dark.png) |
+| ![Light theme preview](docs/assets/preview-light.png) | ![Dark theme preview](docs/assets/preview-dark.png) |
 
-以上是从主题 CSS 生成的静态样张，不是 Obsidian 实机截图。实际效果受字体、缩放与应用版本影响。
+Rendering depends on your fonts, zoom, and Obsidian version. See [validation notes](docs/VALIDATION.md) for the distinction between static browser checks and testing inside Obsidian.
 
-## 特性
+## Features
 
-- **纸面布局**：居中的正文区域、柔和阴影与自适应留白。
-- **中西文衬线正文**：内嵌 TeX Gyre Pagella 西文字体，中文使用本机宋体类字体。
-- **双视图排版**：阅读视图与实时预览共享字体、版心与间距参数。
-- **清楚的内容边界**：暖色引用底板、琥珀色行内代码、低饱和 Callout 提示框。
-- **有层次的排版**：六级标题、实心圆 / 空心圆 / 方形列表符号，以及暖色表头；表格不使用斑马纹。
-- **自然的混排**：默认左对齐，可选择两端对齐；字号、界面与代码字体遵循 Obsidian 设置。
-- **彩虹目录**：八组低饱和配色、层级线、开合文件夹图标与选中高亮。
-- **柔和的界面**：浅深配色、圆角文档标签，保留 Obsidian 原有操作方式。
-- **打印适配**：Mermaid 图表在打印时按页宽与高度上限等比缩小，屏幕显示不变。
-- **离线可用**：字体嵌入主题 CSS，运行时不请求远程资源。
+- **Paper layout:** a centered reading area, soft shadows, and responsive margins.
+- **Serif body text:** four embedded TeX Gyre Pagella faces for Latin text, paired with locally installed CJK serif fonts.
+- **Consistent views:** Reading View and Live Preview share font, measure, and spacing settings.
+- **Clear content boundaries:** warm blockquotes, amber inline code, and softly tinted callouts.
+- **Visible hierarchy:** six heading levels, solid/hollow/square list bullets, and warm table headers without zebra stripes.
+- **Natural mixed text:** start alignment by default; justification is optional. Text size, interface fonts, and code fonts follow Obsidian settings.
+- **Colorful navigation:** eight muted folder colors, indentation guides, decorative file icons, and active-file highlights.
+- **Rounded document tabs:** keep Obsidian's native controls and interaction patterns.
+- **Print sizing:** Mermaid SVG diagrams scale proportionally to the printable area without changing their screen size.
+- **Offline fonts:** no remote font or image requests at runtime.
 
-## 安装
+## Installation
 
-当前使用手动安装；GitHub 开源不等于已经上架 Obsidian 社区主题列表。
+For manual installation, download the theme ZIP from [Releases](https://github.com/Tom2021-vice/obsidian-theme-quiet-paper/releases), or download the raw [theme.css](theme.css) and [manifest.json](manifest.json) files.
 
-1. 如果已有 [Release](https://github.com/Tom2021-vice/obsidian-theme-quiet-paper/releases)，可下载主题安装包；也可以直接下载根目录的 [theme.css](theme.css) 和 [manifest.json](manifest.json) 原始文件。
-2. 在自己的笔记库中创建 `.obsidian/themes/Quiet Paper/`，将这两个文件放进去：
+1. Create `.obsidian/themes/Quiet Paper/` inside your vault.
+2. Place `theme.css` and `manifest.json` in that folder.
+3. In Obsidian, open **Settings → Appearance → Themes** and select **Quiet Paper**.
+4. Choose light or dark mode. An 18 px text size and **Readable line length** are suggested starting points, not enforced settings.
 
-   ```text
-   你的笔记库/
-   └─ .obsidian/themes/Quiet Paper/
-      ├─ manifest.json
-      └─ theme.css
-   ```
+```text
+Your vault/
+└─ .obsidian/themes/Quiet Paper/
+   ├─ manifest.json
+   └─ theme.css
+```
 
-3. 打开 Obsidian「设置 → 外观 → 主题」，选择 **Quiet Paper**。
-4. 按喜好选择浅色或深色，建议先将正文字号设为 **18**，并在编辑器设置中开启「缩减栏宽」。
+To update, replace both files. If needed, switch to the default theme and back. The demo ZIP is a separate test vault; do not copy its `.obsidian` settings over your personal vault.
 
-更新时替换 `theme.css` 与 `manifest.json` 即可。若没有立即生效，可手动切换到默认主题，再切回 Quiet Paper。演示库配置用于独立测试，请勿覆盖个人笔记库的 `.obsidian` 配置。
+Publishing a GitHub release does not itself add a theme to the Obsidian community directory.
 
-## 字体
+## Fonts
 
-| 用途 | 默认方案 | 是否内嵌 |
+| Purpose | Default | Embedded |
 | --- | --- | --- |
-| 西文正文 | TeX Gyre Pagella，含粗体、斜体与粗斜体 | 是 |
-| 中文正文 | Noto Serif SC / Source Han Serif SC，回退到系统宋体 | 否 |
-| 界面 | Obsidian 的界面字体设置或系统默认 | 否 |
-| 代码 | Obsidian 的等宽字体设置或系统默认 | 否 |
-| 数学公式 | Obsidian 原生 MathJax 字体 | 否 |
+| Latin body text | TeX Gyre Pagella: regular, italic, bold, bold italic | Yes |
+| Chinese body text | Noto Serif SC / Source Han Serif SC, then system serif fallbacks | No |
+| Interface | Your Obsidian setting or its native default | No |
+| Code | Your Obsidian monospace setting or its native default | No |
+| Mathematics | Obsidian's native MathJax fonts | No |
 
-建议安装 [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) 或 [思源宋体](https://github.com/adobe-fonts/source-han-serif)。在 Obsidian 外观设置中清空自定义的**正文字体**，可以让主题的中西文字体搭配生效；界面字体和等宽字体沿用个人设置；没有自定义时使用 Obsidian 原生默认值。主题不固定正文字号，18 只是建议值，段间距会随字号缩放。
+For Chinese text, install [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) or [Source Han Serif](https://github.com/adobe-fonts/source-han-serif). Clear the custom **Text font** setting to use the theme's font pairing. Interface and monospace settings remain yours to choose. Paragraph spacing scales with your text size.
 
-H4 / H5 / H6 请求字重为 650 / 600 / 600，H6 另用次要文字颜色。实际粗细取决于字体可用字重；内嵌 Pagella 只有 400 与 700，浏览器会匹配可用字重。
+H4/H5/H6 request weights of 650/600/600; H6 also uses muted text. Actual weight depends on the font: the bundled Pagella faces provide 400 and 700, so intermediate values map to available weights.
 
-## 自定义
+## Customization
 
-主题可以独立使用。若已安装 [Style Settings](https://github.com/mgmeyers/obsidian-style-settings)，可在 **Quiet Paper · 静纸** 中调整：
+The theme works without plugins. With [Style Settings](https://github.com/mgmeyers/obsidian-style-settings), look for **Quiet Paper · 静纸**. The existing Chinese setting labels are listed below so they are easy to find.
 
-| 选项 | 默认值 / 作用 |
+| Setting | Default / effect |
 | --- | --- |
-| 正文宽度 | `40em` |
-| 正文行高 | `1.6` |
-| 纸面内边距 | `1.9em` |
-| 中文字体 | 优先使用本机 Noto Serif SC / 思源宋体 |
-| 保留完整空行高度 | 默认关闭；开启后取消实时预览的空行收紧 |
-| 简洁文件目录 | 默认关闭；开启后移除彩虹分组与装饰图标 |
-| 平整纸面 | 去掉纸面圆角与阴影 |
-| 两端对齐正文 | 默认关闭；开启后使用两端对齐，打印仍左对齐 |
+| Text width / 正文宽度 | `40em` |
+| Line height / 正文行高 | `1.6` |
+| Paper padding / 纸面内边距 | `1.9em` |
+| Chinese font / 中文字体 | Prefer local Noto Serif SC / Source Han Serif SC |
+| Full-height empty lines / 保留完整空行高度 | Off; enable to disable empty-line tightening in Live Preview |
+| Plain file explorer / 简洁文件目录 | Off; enable to remove colored groups and decorative icons |
+| Flat paper / 平整纸面 | Remove rounded paper corners and shadows |
+| Justify body text / 两端对齐正文 | Off; printing always uses start alignment |
 
-从 0.1.5 升级时，旧「左对齐正文」选项已被默认左对齐取代。需要书籍式对齐时，请开启新的「两端对齐正文」；长路径和中英混排建议保持默认。
+Since 0.1.6, start alignment is the default and replaces the former left-alignment toggle. Leave justification off for long paths and mixed-language technical notes.
 
-也可以使用 CSS 片段调整数值：
+You can also use a CSS snippet:
 
 ```css
 body {
@@ -88,51 +89,52 @@ body {
 }
 ```
 
-## 兼容性与已知限制
+## Compatibility and limitations
 
-- Windows 上已获得实际使用反馈；其他平台、移动端和打印尚未完整验收。
-- 实时预览会在光标进入空行时恢复正常行高，可能出现局部位移；可开启「保留完整空行高度」。
-- 彩虹目录按当前挂载的顶层文件夹顺序配色。排序或长目录滚动可能改变色序，目前没有固定路径配色。
-- 表格前的空行属于 Markdown 内容，主题只调整显示，不改变解析规则或笔记文本。
-- Mermaid 打印规则适用于带有效 `viewBox` 的原生 SVG；超长图会缩小，文字也随之缩小。密集流程图可选横向纸张或拆成多张图，主题不重排节点。
-- 引用留白针对默认阅读字体做了视觉校正；若自定义字体偏差明显，可通过 CSS 片段设置 `--qp-quote-optical-offset: 0em` 恢复对称内边距。
-- 两端对齐使用浏览器原生能力，没有实现 Knuth–Plass 全段断行；公式仍由 MathJax 渲染。
-- Style Settings 面板及第三方图标插件的组合兼容性仍需更多实测。
+- Windows has received real usage feedback. Other platforms, mobile devices, and printing are not fully validated.
+- Entering an empty line in Live Preview restores its normal height and may shift surrounding content. Enable the full-height empty-line option to opt out.
+- Folder colors follow the currently mounted top-level folder order; sorting and virtual scrolling can change the sequence.
+- A blank line before a table is part of Markdown parsing. The theme changes presentation, not note contents or syntax rules.
+- Mermaid print sizing requires an SVG with a valid `viewBox`. Very long diagrams have smaller labels after scaling; landscape paper or splitting a diagram can help. CSS does not rearrange nodes.
+- Blockquote padding includes an optical correction for the reading font. Set `--qp-quote-optical-offset: 0em` in a snippet for geometrically equal padding when using a different font.
+- Optional justification uses browser layout, not Knuth–Plass paragraph breaking. MathJax remains responsible for formulas.
+- Style Settings and third-party icon plugin combinations need further real-app testing.
 
-详细范围见 [验证说明](docs/VALIDATION.md)。
+See [validation notes](docs/VALIDATION.md) and the [Community Directory warning review](docs/COMMUNITY-REVIEW.md). Some warnings are intentionally retained to preserve fonts, editor spacing, link styling, and printable diagrams. A local check is not community-directory approval.
 
-## 开发
+## Development
 
-需要 Node.js 22+；打包另需 Python 3.10+。浏览器检查默认使用本机 Microsoft Edge。
+Requires Node.js 22+ and, for packaging, Python 3.10+. Browser checks use Microsoft Edge by default.
 
 ```sh
 npm ci
 npm run check
+npm run check:community
 npm test
 python scripts/package.py
 ```
 
-编辑 `src/*.css`，再构建生成根目录 `theme.css`。构建同时更新 `dist/Quiet Paper/` 和项目演示库中的主题副本，不写入个人笔记库，也不启动 Obsidian。首次安装依赖需要联网，常规构建与测试使用本地资源。
+Edit `src/*.css`, then build the generated root `theme.css`. The build embeds all four font faces and removes formatting whitespace and ordinary comments without rewriting CSS rules. It preserves the Style Settings block and license header. Sources remain readable.
 
-使用其他 Chromium 浏览器时，设置 `QP_BROWSER_EXECUTABLE` 为其可执行文件路径。测试启动独立无界面浏览器，不连接已有会话。
+Builds update `dist/Quiet Paper/` and the theme copy in the project demo vault. They do not write to your personal vault or start Obsidian. Set `QP_BROWSER_EXECUTABLE` to use another Chromium browser; tests launch an isolated headless session. Initial dependency installation needs network access; normal builds and tests use local assets.
 
 ```text
-src/             分模块维护的主题 CSS
-assets/fonts/    内嵌字体、来源记录与许可
-demo-vault/      原创排版与编辑检查笔记
-scripts/         构建、字体准备与打包脚本
-tests/           独立浏览器 CSS 回归检查
-docs/            验证说明、路线图与预览图
-.github/         CI、Issue 与 PR 模板
-theme.css        可直接安装的生成文件
-manifest.json    Obsidian 主题元数据
-versions.json    版本与最低应用版本映射
+src/             Theme CSS modules
+assets/fonts/    Embedded fonts, provenance, and licenses
+demo-vault/      Original typography and editing examples
+scripts/         Build, audit, font preparation, and packaging tools
+tests/           Isolated browser CSS and build regression checks
+docs/            Validation, warning review, roadmap, and previews
+.github/         CI, issue templates, and PR template
+theme.css        Generated installable theme
+manifest.json    Obsidian theme metadata
+versions.json    Theme versions and minimum Obsidian versions
 ```
 
-提交前请阅读 [贡献指南](CONTRIBUTING.md)。问题反馈请使用 [GitHub Issues](https://github.com/Tom2021-vice/obsidian-theme-quiet-paper/issues)。版本变化见 [CHANGELOG](CHANGELOG.md)，后续方向见 [路线图](docs/ROADMAP.md)。
+Keep both READMEs in sync. See [contributing guidelines](CONTRIBUTING.md), [changes](CHANGELOG.md), [roadmap](docs/ROADMAP.md), and [release instructions](docs/RELEASING.md). Report problems through [GitHub Issues](https://github.com/Tom2021-vice/obsidian-theme-quiet-paper/issues).
 
-## 致谢与许可
+## Credits and licenses
 
-设计灵感来自 [Telari](https://telari.app/) 的文档排版。本项目是独立主题，与 Telari 无关联，也不包含其应用代码、截图或转录样例文案。
+Inspired by the document typography of [Telari](https://telari.app/). Quiet Paper is an independent theme, is not affiliated with Telari, and does not include its application code or transcribed sample copy.
 
-主题代码、文档与原创演示采用 [MIT License](LICENSE)。内嵌字体采用 **GUST Font License**，不属于 MIT 许可范围；来源、格式转换与完整许可见 [ATTRIBUTION](ATTRIBUTION.md)。
+Theme code, documentation, and original demo content use the [MIT License](LICENSE). Embedded fonts use the **GUST Font License**, not MIT. See [attribution](ATTRIBUTION.md) for font sources, conversion details, and license locations.

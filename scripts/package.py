@@ -13,8 +13,8 @@ dist = root / 'dist'
 dist.mkdir(exist_ok=True)
 
 common = [(root / name, name) for name in (
-    'README.md', 'LICENSE', 'ATTRIBUTION.md', 'CHANGELOG.md', 'CONTRIBUTING.md',
-    'docs/VALIDATION.md', 'docs/ROADMAP.md', 'docs/RELEASING.md',
+    'README.md', 'README.zh-CN.md', 'LICENSE', 'ATTRIBUTION.md', 'CHANGELOG.md', 'CONTRIBUTING.md',
+    'docs/VALIDATION.md', 'docs/ROADMAP.md', 'docs/RELEASING.md', 'docs/COMMUNITY-REVIEW.md',
     'docs/assets/preview-light.png', 'docs/assets/preview-dark.png',
 )]
 common += [(root / 'assets/fonts' / name, 'licenses/' + name) for name in (

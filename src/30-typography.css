@@ -7,7 +7,6 @@
 .markdown-rendered p {
   text-align: var(--qp-text-align);
   text-align-last: start;
-  text-indent: 0;
   line-break: strict;
   overflow-wrap: break-word;
 }
@@ -35,7 +34,6 @@
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
   text-decoration-color: color-mix(in srgb, currentcolor 45%, transparent);
-  text-decoration-skip-ink: auto;
 }
 
 .markdown-rendered strong,

@@ -1,6 +1,7 @@
 import { readFile, writeFile, readdir, mkdir, copyFile, cp } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { compactCss } from './compact-css.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(await readFile(resolve(root, 'manifest.json'), 'utf8'));
@@ -15,6 +16,8 @@ for (const [face, style, weight] of fonts) {
   css += `@font-face {\n  font-family: "Quiet Pagella";\n  font-style: ${style};\n  font-weight: ${weight};\n  font-display: swap;\n  src: url("data:font/woff2;base64,${data.toString('base64')}") format("woff2");\n}\n\n`;
 }
 for (const file of styles) css += `/* ${file} */\n${(await readFile(resolve(root, 'src', file), 'utf8')).replace(/\r\n/g, '\n')}\n`;
+const uncompressedBytes = Buffer.byteLength(css);
+css = compactCss(css);
 await writeFile(resolve(root, 'theme.css'), css);
 for (const directory of ['dist/Quiet Paper', 'demo-vault/.obsidian/themes/Quiet Paper']) {
   const target = resolve(root, directory);
@@ -23,7 +26,7 @@ for (const directory of ['dist/Quiet Paper', 'demo-vault/.obsidian/themes/Quiet 
 }
 const dist = resolve(root, 'dist/Quiet Paper');
 await mkdir(resolve(dist, 'licenses'), { recursive: true });
-for (const file of ['README.md', 'LICENSE', 'ATTRIBUTION.md', 'CHANGELOG.md', 'CONTRIBUTING.md']) {
+for (const file of ['README.md', 'README.zh-CN.md', 'LICENSE', 'ATTRIBUTION.md', 'CHANGELOG.md', 'CONTRIBUTING.md']) {
   await copyFile(resolve(root, file), resolve(dist, file));
 }
 await cp(resolve(root, 'docs'), resolve(dist, 'docs'), { recursive: true });
@@ -31,4 +34,4 @@ for (const file of ['GUST-FONT-LICENSE.txt', 'LPPL-1.3c.txt']) {
   await copyFile(resolve(root, 'assets/fonts', file), resolve(dist, 'licenses', file));
 }
 await copyFile(resolve(root, 'assets/fonts/README.md'), resolve(dist, 'licenses/FONT-NOTICE.md'));
-console.log(`Built ${manifest.name} ${manifest.version}: ${Math.round(Buffer.byteLength(css) / 1024)} KiB, ${styles.length} CSS modules, 4 embedded font faces.`);
+console.log(`Built ${manifest.name} ${manifest.version}: ${Math.round(Buffer.byteLength(css) / 1024)} KiB, ${styles.length} CSS modules, 4 embedded font faces; ${uncompressedBytes - Buffer.byteLength(css)} bytes removed without changing rules.`);

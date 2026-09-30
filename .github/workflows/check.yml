@@ -23,5 +23,6 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: git diff --exit-code -- theme.css
+      - run: npm run check:community
       - run: npm test
       - run: python scripts/package.py
